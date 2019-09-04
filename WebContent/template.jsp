@@ -26,12 +26,6 @@
 	</td>
 </tr>
 
-<tr>
-	<td colspan=3>
-		footer
-	</td>
-</tr>
-
 </table>
 </center>
 </body>

@@ -18,13 +18,11 @@
     String user = "PROJECT3613";
     String pass = "1234";
     Connection conn;
-    Statement  stmt;
     PreparedStatement pstmt;
     ResultSet rs;
      
     Class.forName("oracle.jdbc.driver.OracleDriver");
     conn = DriverManager.getConnection(url, user, pass);
-    stmt = conn.createStatement();
     pstmt=conn.prepareStatement("select id from CUSTOMER where id = '"+id+"' and pw = '"+pw+"'");
     rs=pstmt.executeQuery();
     
