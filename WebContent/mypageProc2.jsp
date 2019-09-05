@@ -30,23 +30,10 @@
 	     
 	    Class.forName("oracle.jdbc.driver.OracleDriver");
 	    conn = DriverManager.getConnection(url, user, pass);
-	    //stmt = conn.createStatement();
-	     /*  String query = "UPDATE CUSTOMER SET pw=?, name=?, phone=?, email=? where id=?";
-	      pstmt = conn.prepareStatement(query);
-		  pstmt.setString(1, pw);
-		  pstmt.setString(2, name);
-		  pstmt.setString(3, phone);
-		  pstmt.setString(4, email);
-		  pstmt.setString(5, id);
-	      
-	      
-	      int r = pstmt.executeUpdate(); 
-	      System.out.println("변경된 row : " + r); */
 	      
 	      stmt = conn.createStatement();
 
 		  String query = "UPDATE CUSTOMER SET pw="+"'"+pw+"'"+", name="+"'"+name+"'"+", phone="+"'"+phone+"'"+", email="+"'"+email+"'"+" where id="+"'"+id+"'";
-		//INSERT into member(id,name,pwd,email) VALUES ('id','name','pwd','email') 쿼리문
 		  stmt.executeUpdate(query);
 	      
 	      conn.commit();

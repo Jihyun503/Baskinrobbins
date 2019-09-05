@@ -29,18 +29,14 @@
 	    String user = "PROJECT3613";
 	    String pass = "1234";
 	    Connection conn;
-	    Statement  stmt;
 	    PreparedStatement pstmt;
-	    ResultSet rs;
 	     
 	    Class.forName("oracle.jdbc.driver.OracleDriver");
 	    conn = DriverManager.getConnection(url, user, pass);
-	    stmt = conn.createStatement();
-
-		  String query = "INSERT INTO CUSTOMER(id, pw, name, phone, birth, email)  VALUES('"+id+"','"+pw+"','"+name+"','"+phone+"','"+birth+"','"+email+"')";
+	    pstmt=conn.prepareStatement("INSERT INTO CUSTOMER(id, pw, name, phone, birth, email)  VALUES('"+id+"','"+pw+"','"+name+"','"+phone+"','"+birth+"','"+email+"')");
 		//INSERT into member(id,name,pwd,email) VALUES ('id','name','pwd','email') 쿼리문
-		  stmt.executeUpdate(query);
-		  stmt.close();
+		  pstmt.executeUpdate();
+		  pstmt.close();
 		  conn.close();
 		 }
 		 catch(Exception e){
