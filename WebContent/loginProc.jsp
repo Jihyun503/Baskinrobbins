@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+if(session.getAttribute("id")!=null){
+	out.print("<script>alert('이미 로그인이 완료되었습니다');history.go(-1)</script>");
+}
+%>
 <center>
 <img src="img/biglogo.png" width="400">
 <form method="post" action="loginProc2.jsp">

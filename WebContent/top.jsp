@@ -90,7 +90,9 @@ body {
       <a href="drink.jsp">DRINK</a>
       <a href="etc.jsp">ETC.</a>
     </div>
-  </div> 
+    </div>
+    <a href="board.jsp">BOARD</a>
+ 
 <% if(session.getAttribute("id")!=null){
 	  	out.print("<h4 style='text-align:right'>"+session.getAttribute("id")+"님 환영합니다");
 %>
