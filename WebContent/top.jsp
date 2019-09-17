@@ -86,20 +86,25 @@ body {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="icecream.jsp">ICECREAM</a>
-      <a href="drink.jsp">DRINK</a>
-      <a href="etc.jsp">ETC.</a>
+      <a href="menu2.jsp?cata=I">ICECREAM</a>
+      <a href="menu2.jsp?cata=B">DRINK</a>
+      <a href="menu2.jsp?cata=D">ETC.</a>
     </div>
     </div>
     <a href="board.jsp">BOARD</a>
+    
  
 <% if(session.getAttribute("id")!=null){
+%>
+		<a href="admin.jsp">ADMIN</a>
+<% 
 	  	out.print("<h4 style='text-align:right'>"+session.getAttribute("id")+"님 환영합니다");
 %>
+
 	<form action="logout.jsp">
 	<input type="submit" value="로그아웃">
 	<input type="button" value="내 정보" onclick="location.href='mypage.jsp'">
-	</h4>
+	
 <% 	
   		}
 	  

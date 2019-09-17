@@ -9,6 +9,9 @@
 </head>
 <body>
 <%
+	request.setCharacterEncoding("utf-8");
+	String cata = (String)request.getParameter("cata");
+	System.out.println(cata);
 	String url = "jdbc:oracle:thin:@10.96.124.214:1521:xe";
 	String user = "PROJECT3613";
 	String pass = "1234";
@@ -18,8 +21,7 @@
 	 
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	conn = DriverManager.getConnection(url, user, pass);
-	pstmt=conn.prepareStatement("select name, price from PRODUCT where categoryid = 'D'");
-	/* pstmt.setString(1, "B"); */
+	pstmt=conn.prepareStatement("select name, price from v_menu where categoryid = '"+cata+"'");
 	rs=pstmt.executeQuery(); 
 %>
 <center>
@@ -32,16 +34,16 @@
 <%	
 	int plus = 1;
 	while(rs.next()){
+	String name = rs.getString("name");
 %>
 	<tr>
-	<td><img src="img/etc/<%=plus%>.png"></td>
+	<td><a href="view2.jsp?name=<%=rs.getString("name") %>"><img src="img/menu/<%=name%>.png"></a></td>
    	<td><h3><%=rs.getString("name") %></h3></td>
 	<td><h4><%=rs.getInt("price") %></h4></td>
 	</tr>
 <%
 	plus++;
 	}
-	
 %>
 </table>
 </center>

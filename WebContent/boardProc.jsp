@@ -18,7 +18,7 @@
 	 
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	conn = DriverManager.getConnection(url, user, pass);
-	pstmt=conn.prepareStatement("select num, writer, CUSTOMER.name, title, count from REVIEW, CUSTOMER where REVIEW.writer = CUSTOMER.id");
+	pstmt=conn.prepareStatement("select num, writer, CUSTOMER.name, title, count from REVIEW, CUSTOMER where REVIEW.writer = CUSTOMER.id order by num desc");
 	rs=pstmt.executeQuery(); 
 %>
 <center>
@@ -34,7 +34,7 @@
 %>
 	<tr>
 	<td><%=rs.getInt("num")%></td>
-	<td><%=rs.getString("title") %></td>
+	<td><a href="view.jsp?num=<%=rs.getInt("num")%>"><%=rs.getString("title") %></a></td>
    	<td><%=rs.getString("name")+" ("+rs.getString("writer")+")" %></td>
 	<td><%=rs.getString("count") %></td>
 	</tr>
@@ -43,6 +43,8 @@
 	
 %>
 </table>
+<p>
+<button onclick="location.href='write.jsp'">글쓰기</button>
 </center>
 </body>
 </html>

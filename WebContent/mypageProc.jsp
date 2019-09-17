@@ -51,8 +51,9 @@
 e-mail : <input type="text" name="email" maxlength="30" value="<%= email %>"><p>
 전화번호 :
 <input type="text" name="phone" value="<%= phone %>" maxlength="11"><p>
+<input type="button" onclick = "location.href='order.jsp'" value="주문내역">
 <input type="submit" value="완료">
-<input type="button" value="회원탈퇴">
+<input type="button" onclick = "location.href='delete.jsp?chk=2'" value="회원탈퇴">
 </form>
 </center>
 

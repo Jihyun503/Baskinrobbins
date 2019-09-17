@@ -18,6 +18,9 @@ if(session.getAttribute("id")!=null){
 아이디 : <input type="text" name="id" size=10> <br>
 비밀번호 : <input type="password" name="pw" size=10> <p>
 <input type="submit" value="로그인">
+<p>
+<input type="button" onclick="location.href='find.jsp?chk=1'" value="아이디 찾기">
+<input type="button" onclick="location.href='find.jsp?chk=2'" value="비밀번호 찾기">
 </form>
 </center>
 </body>

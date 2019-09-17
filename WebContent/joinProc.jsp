@@ -5,8 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
+<%
+if(session.getAttribute("id")!=null){
+	out.print("<script>alert('이미 회원입니다');history.go(-1)</script>");
+}
+%>
 <center>
 <form action="joinProc2.jsp" method="post">
 이름 : <input type="text" name="name" maxlength="10"><p>
